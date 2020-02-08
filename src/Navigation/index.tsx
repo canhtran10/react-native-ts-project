@@ -1,3 +1,3 @@
-export * from './DrawerNavigator';
-export * from './StackNavigator';
-export * from './TabBottom';
+import {StackNavigator} from './StackNavigator';
+
+export {StackNavigator};

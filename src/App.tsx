@@ -1,8 +1,12 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { StackNavigator } from './Navigation';
+import {NavigationContainer} from '@react-navigation/native';
+import {StackNavigator} from './Navigation';
 
-function App() {
+export interface Props {
+
+}
+
+const App: React.FC<Props> = (props) => {
   return (
     <NavigationContainer>
       <StackNavigator/>

@@ -5,6 +5,7 @@ export const stylesGlobal = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     alignSelf: 'center',
+    justifyContent: 'center'
   },
   buttons: {
     flexDirection: 'row',
@@ -21,13 +22,7 @@ export const stylesGlobal = StyleSheet.create({
     color: '#999',
     fontWeight: 'bold',
   },
-  font: {
-
-  },
-  textLabel: {
-
-  },
-  textInput: {
-
-  }
+  font: {},
+  textLabel: {},
+  textInput: {}
 });
