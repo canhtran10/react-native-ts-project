@@ -1,14 +1,9 @@
-import {INCREMENT, INCREMENT_ASYNC} from "../Type";
+import {INCREMENT_ASYNC, DECREMENT_ASYNC} from "../Type";
 
-export function loadMessage(data: any) {
-  return {type: INCREMENT, data};
+export function increment(number: any) {
+  return {type: INCREMENT_ASYNC, number};
 }
 
-/**
- * Action for Saga
- * @param data
- * @returns {{data: *, type: string}}
- */
-export function loadMessages(data: any) {
-  return {type: INCREMENT_ASYNC, data};
+export function decrement(data: any) {
+  return {type: DECREMENT_ASYNC, data};
 }

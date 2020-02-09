@@ -5,10 +5,12 @@ export const counter = (state = INITIAL_STORE.counter, action: any) => {
   switch (action.type) {
     case INCREMENT:
       console.log('INCREMENT reducer');
-      return state.number++;
+      state.number++;
+      break;
 
     case DECREMENT:
-      return state.number--;
+      state.number--;
+      break;
   }
   console.log('state', state);
   return state

@@ -25,7 +25,7 @@ export class Help extends Component<Props>{
       <View style={stylesGlobal.root}>
         <Text>Help Screen</Text>
         <Button title={"Home screen"}
-                onPress={() => this.props.navigation.navigate('TabNavigatorBottom', {screen: 'Home'})}/>
+                onPress={() => this.props.navigation.navigate('TabNavigatorBottom', {screen: 'NewMessage'})}/>
       </View>
     )
   }
