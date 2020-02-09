@@ -17,9 +17,11 @@ export const StackNavigator: React.FC<Props> = (props) => {
           header: ({ scene, previous, navigation }) => {
             console.log('x', scene)
             const { options } = scene.descriptor;
+            // @ts-ignore
+            const { route } = scene.route;
             const title =
-              scene.route.params !== undefined && scene.route.params.screen !== undefined
-              ? scene.route.params.screen
+              route !== undefined && route.params !== undefined && route.params.screen !== undefined
+              ? route.params.screen
               : options.headerTitle !== undefined
                 ? options.headerTitle
                 : options.title !== undefined
