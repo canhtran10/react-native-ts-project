@@ -5,8 +5,8 @@ import * as React from 'react';
 let current: any;
 
 export const navigationRef = React.createRef();
-current = navigationRef.current;
 
+current = navigationRef.current;
 export function navigate(name: String, params: any) {
   current?.navigate(name, params);
 }

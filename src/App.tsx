@@ -4,6 +4,8 @@ import {StackNavigator} from './Navigation';
 import {AppState} from "react-native";
 import {Component} from "react";
 import { navigationRef } from './Navigation';
+import { Provider } from 'react-redux';
+import store from './Store';
 
 export interface Props {
   navigation?: any,
@@ -39,9 +41,11 @@ class App extends Component<Props, State>{
 
   render(){
     return (
-      <NavigationContainer ref={navigationRef}>
-        <StackNavigator/>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer ref={navigationRef}>
+          <StackNavigator/>
+        </NavigationContainer>
+      </Provider>
     );
   }
 
