@@ -34,7 +34,7 @@ export const TabNavigatorBottom: React.FC<Props> = (props) => {
       <Tab.Screen name="SettingTab" component={Setting} options={
         {
           title: 'Settings',
-          tabBarIcon: ({color}) => <Icon name="fire" size={30} color={color}/>
+          tabBarIcon: ({color}) => <Icon name="setting" size={30} color={color}/>
         }
       }/>
     </Tab.Navigator>
