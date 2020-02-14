@@ -27,7 +27,9 @@ class _Home extends Component<Props>{
     return (
       <View style={stylesGlobal.root}>
         <Text>Home Screen</Text>
-        <Button title={"Go to New Message"} onPress={() => this.props.navigation.navigate('TabNavigatorBottom', {screen: 'NewMessage'})}/>
+        <Button title={"Go to New Message"} onPress={() => {
+          this.props.navigation.jumpTo('NewMessageTab', { owner: 'Michaś' });
+        } }/>
         <Button title={"Go to Help"} onPress={() => this.props.navigation.navigate('Help')}/>
       </View>
     );
