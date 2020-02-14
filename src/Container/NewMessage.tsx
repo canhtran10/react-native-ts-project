@@ -5,20 +5,19 @@ import {Component} from "react";
 
 export interface Props {
     navigation: any,
-    route: any,
-    owner: string
+    route?: any,
 }
 
 export interface State {
-    owner: string
+    owner?: string
 }
 
 export class NewMessage extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
-        const {owner} = this.props.route.params;
+        const owner = this.props.route.params && this.props.route.params.owner ? this.props.route.params.owner : null;
         this.state = {
-            owner
+            owner: owner
         }
     }
 
@@ -31,4 +30,4 @@ export class NewMessage extends Component<Props, State> {
             </View>
         );
     }
-};
+}

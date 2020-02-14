@@ -6,6 +6,9 @@ import {Component} from "react";
 import { navigationRef } from './Navigation';
 import { Provider } from 'react-redux';
 import store from './Store';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import SafeAreaView from 'react-native-safe-area-view';
+import {stylesGlobal} from './Layout'
 
 export interface Props {
   navigation?: any,
@@ -43,7 +46,11 @@ class App extends Component<Props, State>{
     return (
       <Provider store={store}>
         <NavigationContainer ref={navigationRef}>
-          <StackNavigator/>
+          <SafeAreaProvider>
+            <SafeAreaView style={stylesGlobal.container} forceInset={{ top: 'always' }}>
+              <StackNavigator/>
+            </SafeAreaView>
+          </SafeAreaProvider>
         </NavigationContainer>
       </Provider>
     );

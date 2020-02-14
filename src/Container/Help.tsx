@@ -23,9 +23,13 @@ export class Help extends Component<Props>{
   render() {
     return (
       <View style={stylesGlobal.root}>
-        <Text>Help Screen</Text>
+        <Text>Help Screen {this.state.title}</Text>
         <Button title={"Home screen"}
-                onPress={() => this.props.navigation.navigate('TabNavigatorBottom', {screen: 'NewMessage'})}/>
+                onPress={() => this.props.navigation.navigate('TabNavigatorBottom', {screen: 'NewMessageTab'})}/>
+
+        <Button title={"Go to New Message"} onPress={() => {
+          this.props.navigation.jumpTo('NewMessageTab', { owner: 'From Help' });
+        } }/>
       </View>
     )
   }
