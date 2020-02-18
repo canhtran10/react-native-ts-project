@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {StackNavigator} from './Navigation';
-import {AppState} from "react-native";
+import {AppState, AsyncStorage} from "react-native";
 import {Component} from "react";
 import { navigationRef } from './Navigation';
 import { Provider } from 'react-redux';
@@ -9,6 +9,7 @@ import store from './Store';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 import {stylesGlobal} from './Layout'
+import {firebaseNotification} from "./Helper/firebaseNotification";
 
 export interface Props {
   navigation?: any,
@@ -30,9 +31,20 @@ class App extends Component<Props, State>{
 
   }
 
-  componentDidMount(): void {
-
+  componentDidMount() {
+    firebaseNotification.requestPermission().then(async (notification) => {
+      console.log('pushNotification', notification);
+      if(notification) {
+        const fcmToken = await notification.getToken();
+        console.log('fcmToken', fcmToken);
+        notification.getInitialNotification();
+        notification.createNotificationListeners();
+        notification.createNotificationDisplayListeners();
+        notification.createNotificationOpenedListeners();
+      }
+    });
   }
+
 
   componentWillUnmount(): void {
 

@@ -1,7 +1,7 @@
-import {Button, Text, View} from "react-native";
+import {AsyncStorage, Button, Text, View} from "react-native";
 import * as React from "react";
 import {stylesGlobal} from '../Layout';
-import {Component} from "react";
+import {Component, useEffect} from "react";
 import {connect} from "react-redux";
 import {increment, decrement} from "../Store/Action";
 
@@ -19,7 +19,7 @@ class _Home extends Component<Props>{
     }
   }
 
-  componentDidMount(): void {
+  async componentDidMount(): void {
     this.props.onIncrement(1);
   }
 
@@ -34,7 +34,7 @@ class _Home extends Component<Props>{
       </View>
     );
   }
-};
+}
 
 const mapStateToProps = (store: any) => {
   return {
@@ -45,7 +45,7 @@ const mapStateToProps = (store: any) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     onIncrement: (number: any) => dispatch(increment(number)), //saga
-    onDncrement: (number: any) => dispatch(decrement(number)),
+    onDecrement: (number: any) => dispatch(decrement(number)),
   }
 };
 

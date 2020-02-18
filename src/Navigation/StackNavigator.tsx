@@ -15,7 +15,7 @@ export const StackNavigator: React.FC<Props> = (props) => {
     <Stack.Screen name="TabNavigatorBottom" component={TabNavigatorBottom}
         options = {{
           header: ({ scene, previous, navigation }) => {
-            console.log('x', scene)
+            // console.log('x', scene)
             const { options } = scene.descriptor;
             // @ts-ignore
             const { route } = scene.route;
@@ -29,8 +29,8 @@ export const StackNavigator: React.FC<Props> = (props) => {
                 : scene.route.name;
 
             return (
-              <View style={{backgroundColor: 'red'}}>
-                <Text>{title}</Text>
+              <View style={{backgroundColor: 'green', paddingVertical: 10, justifyContent: 'center', alignItems: 'flex-start'}}>
+                <Text style={{color: 'white', fontWeight: 'bold'}}>{title}</Text>
               </View>
             );
           }
