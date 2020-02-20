@@ -9,12 +9,12 @@ export interface Props {
 }
 
 export const MyDrawer: React.FC<Props> = (props) => {
-  return (
-    <DrawerNavigator.Navigator>
-      <DrawerNavigator.Screen name="Home" component={Home}/>
-      <DrawerNavigator.Screen name="NewMessage" component={NewMessage}/>
-      <DrawerNavigator.Screen name="Article" component={Article}/>
-      <DrawerNavigator.Screen name="Setting" component={Setting}/>
-    </DrawerNavigator.Navigator>
-  );
+    return (
+        <DrawerNavigator.Navigator>
+            <DrawerNavigator.Screen name="Home" component={Home}/>
+            <DrawerNavigator.Screen name="NewMessage" component={NewMessage}/>
+            <DrawerNavigator.Screen name="Article" component={Article}/>
+            <DrawerNavigator.Screen name="Setting" component={Setting}/>
+        </DrawerNavigator.Navigator>
+    );
 };

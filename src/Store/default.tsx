@@ -1,9 +1,9 @@
 export const INITIAL_STORE = {
-  user: [],
-  messages: [],
-  message: [],
-  alerts: [],
-  counter: {
-    number: 0
-  }
+    user: [],
+    messages: [],
+    message: [],
+    alerts: [],
+    counter: {
+        number: 0
+    }
 };

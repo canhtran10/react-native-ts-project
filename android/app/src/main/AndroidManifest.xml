@@ -13,6 +13,9 @@
     <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
     <!-- < Only if you're using GCM or localNotificationSchedule() > -->
 
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"

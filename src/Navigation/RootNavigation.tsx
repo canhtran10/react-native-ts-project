@@ -7,6 +7,7 @@ let current: any;
 export const navigationRef = React.createRef();
 
 current = navigationRef.current;
+
 export function navigate(name: String, params: any) {
-  current?.navigate(name, params);
+    current?.navigate(name, params);
 }

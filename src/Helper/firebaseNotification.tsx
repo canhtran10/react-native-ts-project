@@ -15,7 +15,7 @@ export const firebaseNotification = {
      * initChannel
      */
     async initChannel() {
-        if(this.platform() === 'android') {
+        if (this.platform() === 'android') {
             const channel = new firebase.notifications.Android.Channel('insider', 'insider channel', firebase.notifications.Android.Importance.Max);
             await firebase.notifications().android.createChannel(channel);
         }
@@ -93,31 +93,31 @@ export const firebaseNotification = {
     async createNotificationDisplayListeners() {
         firebase.notifications().onNotificationDisplayed(notification => {
             console.log('createNotificationDisplayListeners', notification);
-            const { title, body } = notification;
+            const {title, body} = notification;
             // this.showAlert(title, body);
         });
     },
 
     /**
-    * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
-    */
+     * If your app is in background, you can listen for when a notification is clicked / tapped / opened as follows:
+     */
     async createNotificationOpenedListeners() {
         firebase.notifications().onNotificationOpened(notification => {
             console.log('createNotificationOpenedListeners', notification);
-            const { title, body } = notification.notification;
+            const {title, body} = notification.notification;
             console.log("firebase.notifications().onNotificationOpened")
             // this.showAlert(title, body);
         });
     },
 
     /**
-    * If your app is closed, you can check if it was opened by a notification being clicked / tapped / opened as follows:
-    */
+     * If your app is closed, you can check if it was opened by a notification being clicked / tapped / opened as follows:
+     */
     async getInitialNotification() {
         const notificationOpen = await firebase.notifications().getInitialNotification();
         if (notificationOpen) {
             console.log("getInitialNotification", notificationOpen)
-            const { title, body } = notificationOpen.notification;
+            const {title, body} = notificationOpen.notification;
             // this.showAlert(title, body);
         }
     },
@@ -135,9 +135,9 @@ export const firebaseNotification = {
         Alert.alert(
             title, body,
             [
-                { text: 'OK', onPress: () => console.log('OK Pressed') },
+                {text: 'OK', onPress: () => console.log('OK Pressed')},
             ],
-            { cancelable: false },
+            {cancelable: false},
         );
     },
 
@@ -146,10 +146,10 @@ export const firebaseNotification = {
      * @param notification
      * @param localPushId
      */
-    async buildNotification(notification: any,  localPushId: string) {
-        let { title, body } = notification;
+    async buildNotification(notification: any, localPushId: string) {
+        let {title, body} = notification;
 
-        if(!title) {
+        if (!title) {
             title = "Title message";
         }
 

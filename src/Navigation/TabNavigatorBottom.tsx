@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/FontAwesome";
 import * as React from "react";
 
-import {Article, Home, NewMessage, Setting} from '../Container'
+import {Archive, Home, NewMessage, Setting} from '../Container'
 
 const Tab = createBottomTabNavigator();
 
@@ -25,9 +25,9 @@ export const TabNavigatorBottom: React.FC<Props> = (props) => {
                     tabBarIcon: ({color}) => <Icon name="edit" size={30} color={color}/>
                 }
             }/>
-            <Tab.Screen name="ArticleTab" component={Article} options={
+            <Tab.Screen name="ArchiveTab" component={Archive} options={
                 {
-                    title: 'Article',
+                    title: 'Archive',
                     tabBarIcon: ({color}) => <Icon name="inbox" size={30} color={color}/>
                 }
             }/>

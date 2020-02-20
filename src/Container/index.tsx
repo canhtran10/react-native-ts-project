@@ -1,7 +1,8 @@
-import {Home} from "./Home";
-import {NewMessage} from "./NewMessage";
-import {Article} from "./Article";
-import {Setting} from "./Setting";
-import {Help} from "./Help";
+import Home from "./Home/Home";
+import {NewMessage} from "./NewMessage/NewMessage";
+import {Archive} from "./Archive/Archive";
+import {Setting} from "./Setting/Setting";
+import {Help} from "./Help/Help";
+import Login from "./Login/Login";
 
-export {Home, NewMessage, Article, Setting, Help};
+export {Home, NewMessage, Archive, Setting, Help, Login};

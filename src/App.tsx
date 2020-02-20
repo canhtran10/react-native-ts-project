@@ -3,70 +3,70 @@ import {NavigationContainer} from '@react-navigation/native';
 import {StackNavigator} from './Navigation';
 import {AppState, AsyncStorage} from "react-native";
 import {Component} from "react";
-import { navigationRef } from './Navigation';
-import { Provider } from 'react-redux';
+import {navigationRef} from './Navigation';
+import {Provider} from 'react-redux';
 import store from './Store';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import SafeAreaView from 'react-native-safe-area-view';
 import {stylesGlobal} from './Layout'
 import {firebaseNotification} from "./Helper/firebaseNotification";
 
 export interface Props {
-  navigation?: any,
-  appState?: any
+    navigation?: any,
+    appState?: any
 }
 
 interface State {
-  appState: any
+    appState: any
 }
 
-class App extends Component<Props, State>{
+class App extends Component<Props, State> {
 
-  constructor(props: Props) {
-    super(props);
+    constructor(props: Props) {
+        super(props);
 
-    this.state = {
-      appState: props.appState ? props.appState : AppState.currentState
+        this.state = {
+            appState: props.appState ? props.appState : AppState.currentState
+        }
+
     }
 
-  }
-
-  componentDidMount() {
-    firebaseNotification.requestPermission().then(async (notification) => {
-      console.log('pushNotification', notification);
-      if(notification) {
-        const fcmToken = await notification.getToken();
-        console.log('fcmToken', fcmToken);
-        notification.getInitialNotification();
-        notification.createNotificationListeners();
-        notification.createNotificationDisplayListeners();
-        notification.createNotificationOpenedListeners();
-      }
-    });
-  }
+    componentDidMount() {
+        firebaseNotification.requestPermission().then(async (notification) => {
+            console.log('pushNotification', notification);
+            if (notification) {
+                const fcmToken = await notification.getToken();
+                console.log('fcmToken', fcmToken);
+                notification.getInitialNotification();
+                notification.createNotificationListeners();
+                notification.createNotificationDisplayListeners();
+                notification.createNotificationOpenedListeners();
+            }
+        });
+    }
 
 
-  componentWillUnmount(): void {
+    componentWillUnmount(): void {
 
-  }
+    }
 
-  shouldComponentUpdate(nextProps: Readonly<Props>, nextState: Readonly<State>, nextContext: any): boolean {
-    return true;
-  }
+    shouldComponentUpdate(nextProps: Readonly<Props>, nextState: Readonly<State>, nextContext: any): boolean {
+        return true;
+    }
 
-  render(){
-    return (
-      <Provider store={store}>
-        <NavigationContainer ref={navigationRef}>
-          <SafeAreaProvider>
-            <SafeAreaView style={stylesGlobal.container} forceInset={{ top: 'always' }}>
-              <StackNavigator/>
-            </SafeAreaView>
-          </SafeAreaProvider>
-        </NavigationContainer>
-      </Provider>
-    );
-  }
+    render() {
+        return (
+            <Provider store={store}>
+                <NavigationContainer ref={navigationRef}>
+                    <SafeAreaProvider>
+                        <SafeAreaView style={stylesGlobal.container} forceInset={{top: 'always'}}>
+                            <StackNavigator/>
+                        </SafeAreaView>
+                    </SafeAreaProvider>
+                </NavigationContainer>
+            </Provider>
+        );
+    }
 
 
 }
