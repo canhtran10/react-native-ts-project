@@ -12,11 +12,16 @@ import styles from './styles';
 import FingerprintPopup from '../../Component/Fingersprint/Popup';
 
 interface Props {
-
+  errorMessage: any,
+  biometric: any,
+  popupShowed: any
 }
 
 interface State {
-
+  appState?: string,
+  errorMessage: any,
+  biometric: any,
+  popupShowed: any
 }
 
 class Login extends Component<Props, State> {
@@ -54,7 +59,7 @@ class Login extends Component<Props, State> {
       .catch(error => this.setState({ errorMessage: error.message, biometric: error.biometric }));
   }
 
-  handleAppStateChange = (nextAppState) => {
+  handleAppStateChange = (nextAppState: string) => {
     if (this.state.appState && this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
       FingerprintScanner.release();
       this.detectFingerprintAvailable();

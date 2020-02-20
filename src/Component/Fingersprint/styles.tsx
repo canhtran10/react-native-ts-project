@@ -24,7 +24,7 @@ export default {
     color: '#00a4de',
     fontSize: 21,
   },
-  description: (error) => ({
+  description: (error: any) => ({
     textAlign: 'center',
     color: error ? '#ea3d13' : '#a5a5a5',
     height: 65,
