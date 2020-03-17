@@ -153,9 +153,12 @@ export const firebaseNotification = {
             title = "Title message";
         }
 
+        console.log('buildNotification')
+
         return notification.setNotificationId(localPushId) // Any random ID
             .setTitle(title) // Title of the notification
             .setBody(body) // body of notification
+            .setSound('default')
             .android.setPriority(firebase.notifications.Android.Priority.High) // set priority in Android
             .android.setChannelId("reminder") // should be the same when creating channel for Android
             .android.setAutoCancel(true); // To remove notification when tapped on it
